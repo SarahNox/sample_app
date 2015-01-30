@@ -36,5 +36,7 @@ SampleApp::Application.configure do
 
   Rails.application.configure do
     config.active_support.test_order = :sorted
+    config.action_mailer.delivery_method = :test
+    config.action_mailer.default_url_options = { host: 'localhost:3000' }
   end
 end
