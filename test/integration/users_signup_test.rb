@@ -15,13 +15,8 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                                password_confirmation: "bar" }
     end
     assert_template 'users/new'
-<<<<<<< HEAD
-    assert_select 'div#<CSS id for error explanation>'
-    assert_select 'div.<CSS class for field with error>'
-=======
     assert_select 'div#error_explanation'
     assert_select 'div.field_with_errors'
->>>>>>> account-activation-password-reset
   end
 
   test "valid signup information with account activation" do
@@ -32,10 +27,6 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                                             password:              "password",
                                             password_confirmation: "password" }
     end
-<<<<<<< HEAD
-
-=======
->>>>>>> account-activation-password-reset
     assert_equal 1, ActionMailer::Base.deliveries.size
     user = assigns(:user)
     assert_not user.activated?

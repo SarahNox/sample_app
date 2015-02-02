@@ -1,9 +1,5 @@
 class User < ActiveRecord::Base
-<<<<<<< HEAD
   attr_accessor :remember_token, :activation_token, :reset_token
-=======
-  attr_accessor :remember_token, :activation_token
->>>>>>> account-activation-password-reset
   before_save   :downcase_email
   before_create :create_activation_digest
   validates :name,  presence: true, length: { maximum: 50 }
@@ -55,7 +51,6 @@ class User < ActiveRecord::Base
     UserMailer.account_activation(self).deliver_now
   end
 
-<<<<<<< HEAD
   # Sets the password reset attributes.
   def create_reset_digest
     self.reset_token = User.new_token
@@ -73,13 +68,9 @@ class User < ActiveRecord::Base
     reset_sent_at < 2.hours.ago
   end
 
-private
-      # Converts email to all lower-case.
-=======
+
   private
 
-    # Converts email to all lower-case.
->>>>>>> account-activation-password-reset
     def downcase_email
       self.email = email.downcase
     end
