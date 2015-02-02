@@ -1,6 +1,7 @@
 require 'test_helper'
 
 class UserMailerTest < ActionMailer::TestCase
+<<<<<<< HEAD
   # test "account_activation" do
   #   mail = UserMailer.account_activation
   #   assert_equal "Account activation", mail.subject
@@ -10,6 +11,14 @@ class UserMailerTest < ActionMailer::TestCase
   # end
 
   test "account_activation" do
+=======
+  test "account_activation" do
+    # mail = UserMailer.account_activation
+    # assert_equal "Account activation", mail.subject
+    # assert_equal ["to@example.org"], mail.to
+    # assert_equal ["from@example.com"], mail.from
+    # assert_match "Hi", mail.body.encoded
+>>>>>>> account-activation-password-reset
     user = users(:michael)
     user.activation_token = User.new_token
     mail = UserMailer.account_activation(user)
@@ -21,6 +30,7 @@ class UserMailerTest < ActionMailer::TestCase
     assert_match CGI::escape(user.email), mail.body.encoded
   end
 
+<<<<<<< HEAD
   test "p_activation" do
     mail = UserMailer.p_activation
     assert_equal "P activation", mail.subject
@@ -38,6 +48,14 @@ class UserMailerTest < ActionMailer::TestCase
     assert_equal ["noreply@example.com"], mail.from
     assert_match user.reset_token,        mail.body.encoded
     assert_match CGI::escape(user.email), mail.body.encoded
+=======
+  test "password_reset" do
+    mail = UserMailer.password_reset
+    assert_equal "Password reset", mail.subject
+    assert_equal ["to@example.org"], mail.to
+    assert_equal ["noreply@example.com"], mail.from
+    assert_match "Hi", mail.body.encoded
+>>>>>>> account-activation-password-reset
   end
 
 end

@@ -8,6 +8,7 @@ class UserMailerPreview < ActionMailer::Preview
     UserMailer.account_activation(user)
   end
 
+<<<<<<< HEAD
   # Preview this email at http://localhost:3000/rails/mailers/user_mailer/p_activation
   def p_activation
     UserMailer.p_activation
@@ -18,6 +19,11 @@ class UserMailerPreview < ActionMailer::Preview
     user = User.first
     user.reset_token = User.new_token
     UserMailer.password_reset(user)
+=======
+  # Preview this email at http://localhost:3000/rails/mailers/user_mailer/password_reset
+  def password_reset
+    UserMailer.password_reset
+>>>>>>> account-activation-password-reset
   end
 
 end

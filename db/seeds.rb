@@ -21,6 +21,11 @@ User.create!(name:  "Example User",
                email: email,
                password:              password,
                password_confirmation: password,
+<<<<<<< HEAD
                activated: true,
                activated_at: Time.zone.now)
+=======
+              activated: true,
+              activated_at: Time.zone.now)
+>>>>>>> account-activation-password-reset
 end
