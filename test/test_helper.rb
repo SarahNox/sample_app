@@ -7,19 +7,13 @@ Minitest::Reporters.use!
 class ActiveSupport::TestCase
   ActiveRecord::Migration.check_pending!
 
-  # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
-  #
-  # Note: You'll currently still have to declare fixtures explicitly in integration tests
-  # -- they do not yet inherit this setting
   fixtures :all
     include ApplicationHelper
 
-     # Returns true if a test user is logged in.
   def is_logged_in?
     !session[:user_id].nil?
   end
 
-  # Logs in a test user.
   def log_in_as(user, options = {})
     password    = options[:password]    || 'password'
     remember_me = options[:remember_me] || '1'
@@ -34,11 +28,8 @@ class ActiveSupport::TestCase
 
   private
 
-    # Returns true inside an integration test.
     def integration_test?
       defined?(post_via_redirect)
     end
 
-
-  # Add more helper methods to be used by all tests here...
 end
